@@ -69,8 +69,8 @@ function getPoweredByPage(req,res){
 
 function listHappeningPlaces(req, res){
 
-	console.log(req.param('categories'));
-	console.log(req.param('place'));
+	//console.log(req.param('categories'));
+	//console.log(req.param('place'));
 	if(!req.body.hasOwnProperty('categories') ||!req.body.hasOwnProperty('place')) {
 		res.statusCode = 400;
 		return res.send('Error 400: Post syntax incorrect.');
@@ -139,28 +139,34 @@ function displayReviews(req,res){
 
 
 function getChartPage(req,res){
-	yelp.search({term: req.params.c, location: req.params.p, sort:"2"}, function(err, data) {
-		var dta="";
-		var lbl="";
-		var rt="";
-	if(err){
-				throw err;
-			}else{
+//	name
+//	review_count
+//	rating
+	yelp.search({term: req.params.c, location: req.params.p, limit:"20"}, function(err, data) {
+		if(err){
+			throw err;
+		}else{		
 						
-				ejs.renderFile('./views/chartPage.ejs',
-						{happeningData:data.businesses, lbl:lbl, dta:dta, rt: rt},
-						function(err, result) {
-							if (!err) {
-								res.end(result);
-							}
-							else {
-								res.send('An error occurred');
-								console.log(err);
-							}
-						});
-			}
-		  
-		});
+			var name = Object.keys(data.businesses).map(function(k) { return JSON.stringify(data.businesses[k].name.replace(/[^a-zA-Z]+/g, ''))});
+			
+			var review_count = Object.keys(data.businesses).map(function(k) { return data.businesses[k].review_count });
+			var rating = Object.keys(data.businesses).map(function(k) { return data.businesses[k].rating });
+			
+			ejs.renderFile('./views/chartPage.ejs',
+					{name:name, review_count:review_count, rating:rating},
+					function(err, result) {
+						if (!err) {
+							res.end(result);
+						}
+						else {
+							res.send('An error occurred');
+							console.log(err);
+						}
+					});
+		
+		}
+	  
+	});
 }
 
 function getChartDoughnut(req,res){
