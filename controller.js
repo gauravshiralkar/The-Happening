@@ -68,7 +68,11 @@ app.get('/chart', function (req, res) {
 app.post('/chartDoughnut/:c/:p', function (req, res) {
 	//console.log(req.params.c);
 	//console.log(req.params.p);
-	main.getChartDoughnut(req,res);
+	main.getDoughnutChart(req,res);
+});
+
+app.get('/getDoughnutChartData/:category/:place', function (req, res) {
+	main.getDoughnutChartData(req,res);
 });
 
 app.listen(port);

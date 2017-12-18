@@ -171,7 +171,7 @@ function getChartDoughnut(req,res){
 	if(err){
 				throw err;
 			}else{
-						
+		
 				ejs.renderFile('./views/chartReview.ejs',
 						{happeningData:data.businesses, lbl:lbl, dta:dta, rt: rt},
 						function(err, result) {
@@ -188,6 +188,40 @@ function getChartDoughnut(req,res){
 		});
 }
 
+function getDoughnutChart(req,res){
+
+	ejs.renderFile('./views/chartReview.ejs',
+			{category: req.params.c, place: req.params.p},function(err, result) {
+				if (!err) {
+					res.end(result);
+				}
+				else {
+					res.send('An error occurred');
+					console.log(err);
+				}
+			});
+}
+
+function getDoughnutChartData(req,res){
+	console.log("inside getDoughnutChartData");
+	yelp.search({term: req.params.category, location: req.params.place, sort:"2"}, function(err, data) {
+		if(err){
+			throw err;
+		}else{		
+						
+			var result = data.businesses.map(function(v) {
+			    return {
+			      "Name": v.name,
+			      "Reviews": v.review_count
+			    };
+			  });
+			res.send(result);
+		}
+	  
+	});
+		
+}
+
 exports.getHappeningPage = getHappeningPage;
 exports.listHappeningPlaces = listHappeningPlaces;
 exports.showBusinessDetailPage = showBusinessDetailPage;
@@ -198,3 +232,5 @@ exports.getDevelopersPage = getDevelopersPage;
 exports.getPoweredByPage = getPoweredByPage;
 exports.getChartPage = getChartPage;
 exports.getChartDoughnut = getChartDoughnut;
+exports.getDoughnutChart = getDoughnutChart;
+exports.getDoughnutChartData = getDoughnutChartData;
