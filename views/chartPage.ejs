@@ -54,13 +54,14 @@
 		<canvas id="canvas1" height="500" width="1100"></canvas>
 
 	<script>
+	
 		var barChartData = {
-			labels :[<%=rating%>],
+			labels : <%=JSON.stringify(rating)%>,
 			datasets : [
 				{
 					fillColor : "red",
 					strokeColor : "red",
-					data : [<%=review_count%>]
+					data : <%=JSON.stringify(review_count)%>
 				},
 				{
 					fillColor : "turquoise",

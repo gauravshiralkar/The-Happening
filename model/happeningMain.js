@@ -146,14 +146,14 @@ function getChartPage(req,res){
 		if(err){
 			throw err;
 		}else{		
-						
-			var name = Object.keys(data.businesses).map(function(k) { return JSON.stringify(data.businesses[k].name.replace(/[^a-zA-Z]+/g, ''))});
-			
+			console.log(data.businesses);			
+			var name = Object.keys(data.businesses).map(function(k) { console.log(data.businesses[k].name); return data.businesses[k].name.replace(/[^a-zA-Z]+/g, '')});
+			console.log(name);
 			var review_count = Object.keys(data.businesses).map(function(k) { return data.businesses[k].review_count });
 			var rating = Object.keys(data.businesses).map(function(k) { return data.businesses[k].rating });
 			
 			ejs.renderFile('./views/chartPage.ejs',
-					{name:name, review_count:review_count, rating:rating},
+					{name:JSON.stringify(name), review_count:review_count, rating:rating},
 					function(err, result) {
 						if (!err) {
 							res.end(result);
