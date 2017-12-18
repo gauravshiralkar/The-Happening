@@ -3,7 +3,11 @@
   "main": "server.js",
   "dependencies" : {
     "express" : "~3.4.4", 			
+<<<<<<< HEAD
     "ejs" : "latest", 				
+=======
+    "ejs" : "~0.8.5", 				
+>>>>>>> fa3ec49... Final Commit
     "mongoose" : "~3.8.1", 			
     "passport" : "~0.1.17", 		
     "passport-local" : "~0.1.6", 	

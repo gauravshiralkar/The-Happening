@@ -69,8 +69,18 @@ function getPoweredByPage(req,res){
 
 function listHappeningPlaces(req, res){
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 	//console.log(req.param('categories'));
 	//console.log(req.param('place'));
+=======
+	console.log(req.param('categories'));
+	console.log(req.param('place'));
+>>>>>>> fa3ec49... Final Commit
+=======
+	//console.log(req.param('categories'));
+	//console.log(req.param('place'));
+>>>>>>> 12323be... Optimized chart to API
 	if(!req.body.hasOwnProperty('categories') ||!req.body.hasOwnProperty('place')) {
 		res.statusCode = 400;
 		return res.send('Error 400: Post syntax incorrect.');
@@ -139,6 +149,10 @@ function displayReviews(req,res){
 
 
 function getChartPage(req,res){
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 12323be... Optimized chart to API
 //	name
 //	review_count
 //	rating
@@ -146,6 +160,8 @@ function getChartPage(req,res){
 		if(err){
 			throw err;
 		}else{		
+<<<<<<< HEAD
+<<<<<<< HEAD
 			console.log(data.businesses);			
 			var name = Object.keys(data.businesses).map(function(k) { console.log(data.businesses[k].name); return data.businesses[k].name.replace(/[^a-zA-Z]+/g, '')});
 			console.log(name);
@@ -167,6 +183,58 @@ function getChartPage(req,res){
 		}
 	  
 	});
+=======
+	yelp.search({term: req.params.c, location: req.params.p, sort:"2"}, function(err, data) {
+		var dta="";
+		var lbl="";
+		var rt="";
+	if(err){
+				throw err;
+			}else{
+						
+				ejs.renderFile('./views/chartPage.ejs',
+						{happeningData:data.businesses, lbl:lbl, dta:dta, rt: rt},
+						function(err, result) {
+							if (!err) {
+								res.end(result);
+							}
+							else {
+								res.send('An error occurred');
+								console.log(err);
+							}
+						});
+			}
+		  
+		});
+>>>>>>> fa3ec49... Final Commit
+=======
+						
+			var name = Object.keys(data.businesses).map(function(k) { return JSON.stringify(data.businesses[k].name.replace(/[^a-zA-Z]+/g, ''))});
+			
+=======
+			console.log(data.businesses);			
+			var name = Object.keys(data.businesses).map(function(k) { console.log(data.businesses[k].name); return data.businesses[k].name.replace(/[^a-zA-Z]+/g, '')});
+			console.log(name);
+>>>>>>> 4009666... added json stringify
+			var review_count = Object.keys(data.businesses).map(function(k) { return data.businesses[k].review_count });
+			var rating = Object.keys(data.businesses).map(function(k) { return data.businesses[k].rating });
+			
+			ejs.renderFile('./views/chartPage.ejs',
+					{name:JSON.stringify(name), review_count:review_count, rating:rating},
+					function(err, result) {
+						if (!err) {
+							res.end(result);
+						}
+						else {
+							res.send('An error occurred');
+							console.log(err);
+						}
+					});
+		
+		}
+	  
+	});
+>>>>>>> 12323be... Optimized chart to API
 }
 
 function getChartDoughnut(req,res){
@@ -177,7 +245,15 @@ function getChartDoughnut(req,res){
 	if(err){
 				throw err;
 			}else{
+<<<<<<< HEAD
+<<<<<<< HEAD
 		
+=======
+						
+>>>>>>> fa3ec49... Final Commit
+=======
+		
+>>>>>>> 721f505... Added Google maps api to places search
 				ejs.renderFile('./views/chartReview.ejs',
 						{happeningData:data.businesses, lbl:lbl, dta:dta, rt: rt},
 						function(err, result) {
@@ -194,6 +270,10 @@ function getChartDoughnut(req,res){
 		});
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 721f505... Added Google maps api to places search
 function getDoughnutChart(req,res){
 
 	ejs.renderFile('./views/chartReview.ejs',
@@ -228,6 +308,11 @@ function getDoughnutChartData(req,res){
 		
 }
 
+<<<<<<< HEAD
+=======
+>>>>>>> fa3ec49... Final Commit
+=======
+>>>>>>> 721f505... Added Google maps api to places search
 exports.getHappeningPage = getHappeningPage;
 exports.listHappeningPlaces = listHappeningPlaces;
 exports.showBusinessDetailPage = showBusinessDetailPage;
@@ -237,6 +322,16 @@ exports.getHomePage = getHomePage;
 exports.getDevelopersPage = getDevelopersPage;
 exports.getPoweredByPage = getPoweredByPage;
 exports.getChartPage = getChartPage;
+<<<<<<< HEAD
+<<<<<<< HEAD
 exports.getChartDoughnut = getChartDoughnut;
 exports.getDoughnutChart = getDoughnutChart;
 exports.getDoughnutChartData = getDoughnutChartData;
+=======
+exports.getChartDoughnut = getChartDoughnut;
+>>>>>>> fa3ec49... Final Commit
+=======
+exports.getChartDoughnut = getChartDoughnut;
+exports.getDoughnutChart = getDoughnutChart;
+exports.getDoughnutChartData = getDoughnutChartData;
+>>>>>>> 721f505... Added Google maps api to places search
