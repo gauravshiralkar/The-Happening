@@ -19,6 +19,10 @@ app.configure(function () {
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+app.get('/', function (req, res) {
+	main.getHomePage(req,res);
+});
+
 app.get('/home', function (req, res) {
 	main.getHomePage(req,res);
 });
