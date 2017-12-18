@@ -1,0 +1,275 @@
+/***************************************************
+	      online solutions by marija zaric
+***************************************************
+
+
+***************************************************
+			      Reset
+***************************************************/
+
+/***************************************************
+				INTRO
+***************************************************/	
+	
+	#intro{
+	width: 800px;
+	position: relative;
+	float: left;
+	height:350px;
+	padding:10px;
+	background:#E9EAEB;
+	margin-top:12px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	
+	
+
+	}
+
+/***************************************************
+				   HOLDERS
+***************************************************/	
+
+.holder_content {
+	position: relative;
+	float: left;
+	width: 100%;
+	margin-top:5px;
+	margin-bottom:90px;
+
+
+
+	}
+	
+.holder_content1 {
+	position: relative;
+	float: left;
+	width: 100%;
+	margin-top:40px;
+	margin-bottom:30px;
+
+
+	}
+	
+	
+.holder_content_separator{
+	margin-bottom:19px;
+	}
+
+	
+/***************************************************
+			        GALLERY
+***************************************************/
+	 
+	 	 
+	 a.photo_hover3{
+	position:relative;
+	float: left;
+	margin:5px 13px 8px 0;
+	padding: 8px;
+	-moz-box-shadow: 3px 3px gray;
+	-webkit-box-shadow: 3px 3px gray;
+	box-shadow: 3px 3px gray;
+
+	}
+	a.photo_hover3{ background-color:white;
+	border: 1px solid #E1E1E1;
+
+}
+	a.photo_hover3:hover {
+	border: 1px solid #E1E1E1;
+	background-color:white;
+	opacity:0.5;
+	z-index:1000;
+}
+
+	
+	 a.photo_hover2{
+	position:relative;
+	float: right;
+	margin:5px 13px 8px 0;
+	padding: 8px;
+	-moz-box-shadow: 3px 3px gray;
+	-webkit-box-shadow: 3px 3px gray;
+	box-shadow: 3px 3px gray;
+
+	}
+	a.photo_hover2{ background-color:white;
+	border: 1px solid #E1E1E1;
+
+}
+	a.photo_hover2:hover {
+	border: 1px solid #E1E1E1;
+	background-color:white;
+	opacity:0.5;
+	z-index:1000;
+}
+	
+	
+/***************************************************
+			        FOOTER
+***************************************************/
+
+
+footer{
+	position:relative;
+	height:300px;
+	clear:both;
+	width:100%;
+	background-image:url(/stylesheets/images/footer.png);
+	background-position:left top;
+	background-repeat:repeat-x;
+	background-color:#333333;
+	
+	
+
+	}
+
+#FooterOne, #FooterTwo, #FooterTree {
+	position: absolute;	
+}
+
+#FooterTwo{
+	position: absolute;
+	right: 225px;
+	top:250px;
+	color:white;
+
+}
+
+#FooterTree{
+	position: absolute;
+	left: 225px;
+	top:250px;
+	color:white;
+
+}
+
+.container{
+    width:980px;
+    margin:0 auto;
+	background-color:transparent;
+
+
+}
+
+.footer_left{
+	float:left;
+	padding:12px;
+	margin-botttom:-55px;
+	width:170px;
+	margin-right:76px;
+}
+
+
+
+/***************************************************
+				   SPECIFIC
+***************************************************/
+
+	Slideshow
+*/
+
+#slides {
+	position:absolute;
+	top:15px;
+	left:4px;
+	z-index:100;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+
+.slides_container {
+	width:980px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+.slides_container a {
+	width:980px;
+	height:270px;
+	display:block;
+}
+
+.slides_container a img {
+	display:block;
+}
+
+/*
+	Next/prev buttons
+*/
+
+#slides .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left:-39px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides .next {
+	left:585px;
+}
+
+/*
+	Pagination
+*/
+
+.pagination {
+	margin-top:100px;
+	width:100x;
+	position:absolute;
+	top:180px;
+	left:880px;
+	z-index:1000;
+	
+}
+
+.pagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(/stylesheets/images/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}
+
+.icons{
+	float:left;
+	padding:5px;
+}
+
+.picture_footer{
+	position:absolute;
+	left:980px;
+	top:-85px;
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+	<title>The Happening - Graphical Analytics</title>
+	<meta charset="utf-8">
+		<script src="/Chart.js"></script>
+		<script src="/legend.js"></script>
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<style>
+			canvas{
+			}
+		</style>
+
+		<link href="/stylesheets/reset.css" rel="stylesheet" type="text/css" media="all"/>
+		<link href="/stylesheets/layout.css" rel="stylesheet" type="text/css" media="all"/>
+		<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all"/>
+		<script src="js/jquery-1.6.js" ></script>
+		<script src="js/cufon-yui.js"></script>
+		<script src="js/cufon-replace.js"></script>
+		<script src="js/NewsGoth_BT_400.font.js"></script>
+		<script src="js/NewsGoth_BT_700.font.js"></script>
+		<script src="js/jcarousellite.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.mousewheel.js"></script>
+		<script src="js/atooltip.jquery.js"></script>
+		<!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+		<link rel="stylesheet" href="css/ie.css" type="text/css" media="all">
+		<![endif]-->
+	</head>
+	<body>
+	
+	<div class="bg1">
+	  <div class="main">
+	    <!--header -->
+	    <header>
+	      <nav>
+	        <ul id="menu">
+	          <li><a href="/home">Home</a></li>
+	          <li><a href="/happening">Happening Places</a></li>
+	          <li><a href="/developers">Developers</a></li>
+	          <li><a href="/poweredBy">Powered By</a></li>
+	        </ul>
+	      </nav>
+	      <h1><a href="/home" id="logo">Happening feel the best</a></h1>
+	    </header>
+	    <!--header end-->
+	    </div>
+	 </div>
+	 
+	<div class="box" height="300" width="400" align="center">
+	<div style="float:left;width:100%;">
+	<h2> Rating Vs Review </h2>
+		<canvas id="canvas1" height="500" width="1100"></canvas>
+
+	<script>
+		var barChartData = {
+			labels : ["<%=happeningData[0].name%>","<%=happeningData[1].name%>","<%=happeningData[2].name%>","<%=happeningData[3].name%>","<%=happeningData[4].name%>","<%=happeningData[5].name%>","<%=happeningData[6].name%>","<%=happeningData[7].name%>","<%=happeningData[8].name%>","<%=happeningData[9].name%>","<%=happeningData[10].name%>","<%=happeningData[11].name%>","<%=happeningData[12].name%>","<%=happeningData[13].name%>","<%=happeningData[14].name%>","<%=happeningData[15].name%>","<%=happeningData[16].name%>","<%=happeningData[17].name%>","<%=happeningData[18].name%>","<%=happeningData[19].name%>"],
+			datasets : [
+				{
+					fillColor : "red",
+					strokeColor : "red",
+					data : [<%=happeningData[0].review_count%>/500,<%=happeningData[1].review_count%>/500,<%=happeningData[2].review_count%>/500,<%=happeningData[3].review_count%>/500,<%=happeningData[4].review_count%>/500,<%=happeningData[5].review_count%>/500,<%=happeningData[6].review_count%>/500,<%=happeningData[7].review_count%>/500,<%=happeningData[8].review_count%>/500,<%=happeningData[9].review_count%>/500,<%=happeningData[10].review_count%>/500,<%=happeningData[11].review_count%>/500,<%=happeningData[12].review_count%>/500,<%=happeningData[13].review_count%>/500,<%=happeningData[14].review_count%>/500,<%=happeningData[15].review_count%>/500,<%=happeningData[16].review_count%>/500,<%=happeningData[17].review_count%>/500,<%=happeningData[18].review_count%>/500,<%=happeningData[19].review_count%>/500]
+				},
+				{
+					fillColor : "turquoise",
+					strokeColor : "turquoise",
+					data : [<%=happeningData[0].rating%>,<%=happeningData[1].rating%>,<%=happeningData[2].rating%>,<%=happeningData[3].rating%>,<%=happeningData[4].rating%>,<%=happeningData[5].rating%>,<%=happeningData[6].rating%>,<%=happeningData[7].rating%>,<%=happeningData[8].rating%>,<%=happeningData[9].rating%>,<%=happeningData[10].rating%>,<%=happeningData[11].rating%>,<%=happeningData[12].rating%>,<%=happeningData[13].rating%>,<%=happeningData[14].rating%>,<%=happeningData[15].rating%>,<%=happeningData[16].rating%>,<%=happeningData[17].rating%>,<%=happeningData[18].rating%>,<%=happeningData[19].rating%>]
+				}
+			]
+			
+		}
+	
+	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData);
+	</script>
+	<div>
+	<br/>
+	<table style="border:1;border-color:#FFFFFF;"><tr><td>
+	<input type="text" style="background-color:red;width:20px;"/></td><td>Reviews with the scale of 5 </td></tr>
+	<tr><td>
+	<input type="text" style="background-color:turquoise;width:20px;"/></td><td>Ratings with the scale of 5</td><td></td></tr>
+	</table>
+	</div>
+	</div>
+	
+  </div>
+  <div align=center>Developed By Spring 2014 Software Engineering Students</div>
+	</body>
+</html>
